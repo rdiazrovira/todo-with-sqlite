@@ -1,0 +1,22 @@
+<div id="list" class="grid-cols-4 grid gap-5 mb-5">
+    <%= for (todo) in list { %>
+        <article class="rounded-xl border-2 border-gray-100 bg-white flex flex-col justify-between">
+            <div class="flex items-start">
+                <div class="p-4">
+                    <h3 class="font-medium sm:text-lg text-gray-500">
+                        <a href="#" class="hover:underline"><%= todo.Title %></a>
+                    </h3>
+                </div>
+            </div>
+
+            <div class="flex justify-end">
+                <strong class="-mb-[2px] -me-[2px] inline-flex items-center gap-1 rounded-ee-xl rounded-ss-xl bg-green-600 px-3 py-1.5 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                    <span class="text-[10px] font-medium sm:text-xs">Verified!</span>
+                </strong>
+            </div>
+        </article>
+    <% } %>
+</div>

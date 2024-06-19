@@ -1,0 +1,19 @@
+<!-- Add Panel -->
+<div class="w-full text-center mb-10">
+    <h1 class="text-2xl font-bold sm:text-3xl">SQLite Features</h1>
+</div>
+
+<div _="on htmx:afterRequest if detail.successful tell [#name] set you.value to ''" class="mb-10 p-10 border-2 border-black rounded-lg">
+  <form hx-post="/todos/" hx-target="#list" class="mx-auto max-w-md space-y-4">
+    <p class="mt-4 text-gray-500">
+        Here you can add a feature to the list.
+    </p>
+    <input type="text" id="title" name="Title" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm" placeholder="Enter feature" />
+    <button type="submit" class="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white">Submit</button>
+  </form>
+</div>
+
+<!-- List -->
+<div class="p-20 border-2 border-black rounded-lg">
+    <%= partial("todos/list.html") %>
+</div>

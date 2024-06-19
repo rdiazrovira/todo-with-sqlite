@@ -3,6 +3,10 @@ package internal
 import (
 	"embed"
 
+	"todox-with-sqlite/internal/home"
+	"todox-with-sqlite/internal/todos"
+	"todox-with-sqlite/public"
+
 	"github.com/leapkit/core/assets"
 	"github.com/leapkit/core/db"
 	"github.com/leapkit/core/envor"
@@ -10,14 +14,10 @@ import (
 	"github.com/leapkit/core/render"
 	"github.com/leapkit/core/server"
 	"github.com/leapkit/core/session"
-	"todox-with-sqlite/internal/home"
-	"todox-with-sqlite/public"
 	"github.com/paganotoni/tailo"
 
 	_ "github.com/mattn/go-sqlite3"
 )
-
-
 
 var (
 	//go:embed **/*.html **/*.html *.html
@@ -53,10 +53,8 @@ var (
 	// DB is the database connection builder function
 	// that will be used by the application based on the driver and
 	// connection string.
- 	DB = db.ConnectionFn(DatabaseURL, db.WithDriver("sqlite3"))
+	DB = db.ConnectionFn(DatabaseURL, db.WithDriver("sqlite3"))
 )
-
-
 
 // AddRoutes mounts the routes for the application,
 // it assumes that the base services have been injected
@@ -80,6 +78,9 @@ func AddRoutes(r server.Router) error {
 	))
 
 	r.HandleFunc("GET /{$}", home.Index)
+
+	r.HandleFunc("GET /todos/{$}", todos.Index)
+	r.HandleFunc("POST /todos/{$}", todos.Create)
 
 	// Mounting the assets manager at the end of the routes
 	// so that it can serve the public assets.
