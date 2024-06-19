@@ -1,32 +1,12 @@
-## 🎒🚀 LeapKit
+## Todo with SQLite
 
-LeapKit is a template for building web applications with Go, HTMX and Tailwind CSS. It integrates useful features such as hot code reload and css recompiling.
+This is a sample app created with LeapKit.
 
-### Getting started
+## Stack
 
-Use this template by using gonew:
+The stack aims to be as simple as possible. It consists of:
 
-```sh
-go run rsc.io/tmp/gonew@latest github.com/leapkit/template@latest super-app
-```
-
-⚠️ Important: Gonew does not support modules without github.com or similar use github.com/your/app as the pattern for the module path of the newly created project.
-
-### Setup
-
-Install dependencies:
-
-```sh
-go mod download
-go run ./cmd/setup
-```
-
-### Running the application
-
-To run the application in development mode execute:
-
-```sh
-go run ./cmd/dev
-```
-
-And open http://localhost:3000 in your browser.
+- Go is the main language.
+- HTMX for the interactions with the user.
+- Tailwind CSS with the Standalone CLI for styling.
+- SQLite as the database.
